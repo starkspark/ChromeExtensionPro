@@ -96,19 +96,22 @@ function parseData(data){
           newDiv.setAttribute('class','asteroidArrID');
 
           let cardTitle = document.createElement('p');
+          cardTitle.setAttribute('class', 'cardTitle');
           cardTitle.innerHTML = 'Asteroid #' + asteroidCount;
           newDiv.append(cardTitle);
 
-          let title = document.createElement('h2');
-          title.innerHTML = asteroidArr[cards]['name'];
+          let title = document.createElement('h3');
+          title.setAttribute('class', 'asteroidName');
+          title.innerHTML = 'NAME: ' + asteroidArr[cards]['name'];
           newDiv.append(title);
 
           let titleID = document.createElement('h3');
-          titleID.innerHTML = asteroidArr[cards]['asteroidID'];
+          titleID.innerHTML = 'ID: ' + asteroidArr[cards]['asteroidID'];
           newDiv.append(titleID);
 
           let hazardBool = document.createElement('p');
-          hazardBool.innerHTML = asteroidArr[cards]['hazard'];
+          hazardBool.setAttribute('class', 'hazardous');
+          hazardBool.innerHTML = 'Hazardous? ' + asteroidArr[cards]['hazard'];
           newDiv.append(hazardBool);
           
           document.body.append(newDiv);
