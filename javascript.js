@@ -8,10 +8,10 @@ function parseData(data){
   // console logs entire data object
   console.log(data);
   // console.log(typeof data)
-  let asteroidID = [];
-  let name = [];
-  let hazard = [];
-  let miles = [];
+  const asteroidID = [];
+  const name = [];
+  const hazard = [];
+  const miles = [];
 
   // iterate through each key in data
   for (let element in data){
@@ -72,6 +72,28 @@ function parseData(data){
         console.log(asteroidID)
         console.log(name)
         console.log(hazard)
+
+        // let asteroidObj = asteroidID.reduce((acc, element, index) => {
+        //   acc[element] = 
+        // }, {})
+
+        let zipped = asteroidID.map((element, index) => [element, name[index], hazard[index]])
+
+        console.log(zipped)
+
+        let asteroidObj = {};
+
+        for (let arrays of zipped){
+          for (let elements of arrays){
+            let objInAsteroidObj = {};
+            objInAsteroidObj[elements] = arrays[elements]
+          }
+        }
+
+        console.log(asteroidObj);
+
+        let test = new AsteroidBox;
+        console.log('test', test)
       }
     }
   }
@@ -79,17 +101,31 @@ function parseData(data){
 
   class AsteroidBox {
     constructor(asteroid){
-      this.name = '';
-      this.asteroidID = '';
+      this.name = asteroid.name;
+      this.asteroidID = asteroid.asteroidID;
       this.hazard = '';
+      this.size = '';
     }
   }
 
 window.onload = function(){
+
+  // map through one array (name, perhaps), keeping track of value & index
+  
+  // use that index to access corresponding elements in other arrays
+  // put all that information into an object
+  // iterate through that object
+
+  // for the length of the object
+  // create a new instance of the constructor function
+  // create new createElement div 
+  // input each info from each asteroid into constructor function
+  // input those instances into each div
+
+
+
   // create new empty div on page
   let newDiv = document.createElement('div');
-
-  
 
 }
 

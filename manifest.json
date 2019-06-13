@@ -7,5 +7,5 @@
         "persistent": false,
         "scripts": ["javascript.js"]
     },
-    "permissions": ["https://www.google.com/"]
+    "permissions": ["https//www.google.com/"]
 }
