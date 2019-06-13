@@ -5,7 +5,7 @@
     "description": "Delivering top news & music.",
     "background": {
         "persistent": false,
-        "scripts": ["javascript.js"]
+        "scripts": ["javascript.js", "jquery.min.js"]
     },
     "permissions": ["https//*.google.com/"]
 }
