@@ -1,11 +1,13 @@
 {
-    "name": "Top Dose",
+    "name": "Earth's Asteroids",
     "manifest_version": 2,
     "version": "0.1",
-    "description": "Delivering top news & music.",
+    "description": "Keeping up with asteroids headed Earth's way.",
     "background": {
         "persistent": false,
         "scripts": ["javascript.js"]
     },
-    "permissions": ["https//www.google.com/"]
+    "permissions": [
+        "activeTab"
+    ]
 }

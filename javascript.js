@@ -1,4 +1,4 @@
-fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=2019-06-12&end_date=2019-06-12&api_key=iKgIpLjBt6aDCt8hXYxsgbR8TKT6cW8ghYEWP1YD')
+fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=2019-06-13&end_date=2019-06-13&api_key=iKgIpLjBt6aDCt8hXYxsgbR8TKT6cW8ghYEWP1YD')
 
 .then(response => response.json())
 .then(response => parseData(response))
@@ -73,80 +73,65 @@ function parseData(data){
         console.log(name)
         console.log(hazard)
 
-        // let asteroidObj = asteroidID.reduce((acc, element, index) => {
-        //   acc[element] = 
-        // }, {})
-
         let zipped = asteroidID.map((element, index) => [element, name[index], hazard[index]])
 
-        console.log(zipped)
+        console.log('zipped: ',zipped)
 
-        let asteroidObj = {};
+        let asteroidArr = [];
 
         for (let arrays of zipped){
-          for (let elements of arrays){
-            let objInAsteroidObj = {};
-            objInAsteroidObj[elements] = arrays[elements]
-          }
+          let objInAsteroidObj = {};
+          objInAsteroidObj.asteroidID = arrays[0]
+          objInAsteroidObj.name = arrays[1]
+          objInAsteroidObj.hazard = arrays[2]
+          asteroidArr.push(objInAsteroidObj)
         }
 
-        console.log(asteroidObj);
+        console.log('output array: ', asteroidArr)
 
-        let test = new AsteroidBox;
-        console.log('test', test)
+        let asteroidCount = 1;
+        
+        for (let cards = 0; cards < asteroidArr.length; cards++){
+          let newDiv = document.createElement('div');
+          newDiv.setAttribute('class','asteroidArrID');
+
+          let cardTitle = document.createElement('p');
+          cardTitle.innerHTML = 'Asteroid #' + asteroidCount;
+          newDiv.append(cardTitle);
+
+          let title = document.createElement('h2');
+          title.innerHTML = asteroidArr[cards]['name'];
+          newDiv.append(title);
+
+          let titleID = document.createElement('h3');
+          titleID.innerHTML = asteroidArr[cards]['asteroidID'];
+          newDiv.append(titleID);
+
+          let hazardBool = document.createElement('p');
+          hazardBool.innerHTML = asteroidArr[cards]['hazard'];
+          newDiv.append(hazardBool);
+          
+          document.body.append(newDiv);
+          asteroidCount++;
+        }
+
+        // let test = new AsteroidBox;
+        // console.log('test', test)
       }
     }
   }
 
 
-  class AsteroidBox {
-    constructor(asteroid){
-      this.name = asteroid.name;
-      this.asteroidID = asteroid.asteroidID;
-      this.hazard = '';
-      this.size = '';
-    }
-  }
+  // class AsteroidBox {
+  //   constructor(asteroid){
+  //     this.name = asteroid.name;
+  //     this.asteroidID = asteroid.asteroidID;
+  //     this.hazard = '';
+  //     // this.size = '';
+  //   }
+  // }
 
 window.onload = function(){
 
-  // map through one array (name, perhaps), keeping track of value & index
-  
-  // use that index to access corresponding elements in other arrays
-  // put all that information into an object
-  // iterate through that object
-
-  // for the length of the object
-  // create a new instance of the constructor function
-  // create new createElement div 
-  // input each info from each asteroid into constructor function
-  // input those instances into each div
-
-
-
-  // create new empty div on page
-  let newDiv = document.createElement('div');
 
 }
-
-//     let count = 0;
-//     let newDiv = document.createElement('div');
-
-
-//     for (let element in data){
-        
-//     }
-// //     while (count < 5){
-// //         console.log(asteroids)
-// //         count++
-// //         // for (let element in asteroids){
-// //         //     newDiv.innerHTML = element[count]
-
-// //         //     
-// //         // }
-// //     }
-// //   }
-// }
-
-// // Send request
-// request.send()
